@@ -8,6 +8,9 @@ public class Car {
     private Engine engine;
     private Color color;
 
+    public Car() {
+    }
+
     public Car(String name) {
         this.name = name;
         engine = new Engine();

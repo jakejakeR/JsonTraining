@@ -1,22 +1,26 @@
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import model.Engine;
+import model.Car;
+import model.Color;
 
 public class App {
     public static void main(String[] args) throws JsonProcessingException {
-        Engine engine = new Engine();
-        engine.setPower(100);
-        engine.setCapacity(1000);
+        Car lamborghini = new Car("lamborghini");
+        lamborghini.setColor(Color.YELLOW);
+        lamborghini.setMaxSpeed(302);
+        lamborghini.getEngine().setCapacity(6000);
+        lamborghini.getEngine().setPower(800);
 
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
 
-        String engineJson = objectWriter.writeValueAsString(engine);
-        System.out.println(engineJson);
+        String lamborghiniJson = objectWriter.writeValueAsString(lamborghini);
 
-        Engine engineFromJson = objectMapper.readValue(engineJson, Engine.class);
-        System.out.println(engineFromJson);
-        System.out.println(engine.equals(engineFromJson));
+        System.out.println(lamborghini);
+        System.out.println(lamborghiniJson);
+
+        Car lamborghiniFromJson = objectMapper.readValue(lamborghiniJson, Car.class);
+        System.out.println(lamborghini.equals(lamborghiniFromJson));
     }
 }
