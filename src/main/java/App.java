@@ -10,6 +10,9 @@ public class App {
         Scanner sc = new Scanner(System.in);
         StringBuilder userInput = new StringBuilder();
 
+        userInput.append(Files.readString(resourcesPath));
+        System.out.println(userInput.toString());
+
         System.out.println("User input: ");
 
         while(!userInput.toString().contains("#")) {
@@ -22,7 +25,6 @@ public class App {
         String input = userInput.toString();
 
         System.out.println(input);
-        System.out.println("Hello");
 
         Files.writeString(resourcesPath, input);
 
