@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import model.Car;
 import model.Color;
 
@@ -13,8 +14,9 @@ public class App {
         lamborghini.getEngine().setPower(800);
 
         ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
 
-        String lamborghiniJson = objectMapper.writeValueAsString(lamborghini);
+        String lamborghiniJson = objectWriter.writeValueAsString(lamborghini);
 
         System.out.println(lamborghini);
         System.out.println(lamborghiniJson);
