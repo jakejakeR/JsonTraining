@@ -7,4 +7,6 @@ it's quite a nice program
 very usefull
 veeeery usefull
 i'm happy
-this is the end
+this is the endText added by using FileHandler
+Text added by using FileHandler
+Text added by using FileHandler
