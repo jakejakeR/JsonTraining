@@ -11,7 +11,7 @@ public class App {
         StringBuilder userInput = new StringBuilder();
 
         userInput.append(Files.readString(resourcesPath));
-        System.out.println(userInput.toString());
+        System.out.println(userInput);
 
         System.out.println("User input: ");
 
