@@ -1,11 +1,14 @@
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import model.Car;
 import model.Color;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
-    public static void main(String[] args) throws JsonProcessingException {
+    public static void main(String[] args) {
 
         //GSON
 
@@ -21,19 +24,21 @@ public class App {
         fiat.getEngine().setPower(90);
         fiat.getEngine().setCapacity(1200);
 
-        // Obj to JSON
+        Car[] cars = {ferrari, lamborghini, fiat};
+        List<Car> listOfCars = new ArrayList<>(List.of(cars));
+
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setPrettyPrinting();
         Gson gson = gsonBuilder.create();
 
-        String carToJson = gson.toJson(ferrari);
-        System.out.println(carToJson);
+        // List of cars to JSON
+        String carsToJson = gson.toJson(listOfCars);
 
-        // JSON to obj
-        Car carFromJson = gson.fromJson(carToJson, Car.class);
-        System.out.println(carFromJson);
-        System.out.println(ferrari.equals(carFromJson));
+        // JSON to list of cars
+        TypeToken<List<Car>> type = new TypeToken<>(){};
+        List<Car> fromJson = gson.fromJson(carsToJson, type.getType());
 
-
+        System.out.println(fromJson);
+        System.out.println(listOfCars.equals(fromJson));
     }
 }
