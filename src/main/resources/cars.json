@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Ferrari",
+    "maxSpeed": 300,
+    "engine": {
+      "power": 400,
+      "capacity": 3000
+    },
+    "color": "RED"
+  },
+  {
+    "name": "Lamborghini",
+    "maxSpeed": 299,
+    "engine": {
+      "power": 720,
+      "capacity": 5600
+    },
+    "color": "YELLOW"
+  },
+  {
+    "name": "Fiat",
+    "maxSpeed": 140,
+    "engine": {
+      "power": 90,
+      "capacity": 1200
+    },
+    "color": "BLUE"
+  }
+]
