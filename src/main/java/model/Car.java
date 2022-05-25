@@ -16,6 +16,13 @@ public class Car {
         engine = new Engine();
     }
 
+    public Car(String name, int maxSpeed, Color color) {
+        this.name = name;
+        this.maxSpeed = maxSpeed;
+        this.color = color;
+        engine = new Engine();
+    }
+
     @Override
     public String toString() {
         return "Car{" +
