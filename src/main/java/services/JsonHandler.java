@@ -36,13 +36,11 @@ public class JsonHandler {
 
     }
 
-    public static List<Car> readFromJson(Path path) {
+    public static List<?> readFromJson(Path path, TypeToken type) {
 
         List<Car> listFromJson = new ArrayList<>();
 
         try {
-            TypeToken<List<Car>> type = new TypeToken<>() {
-            };
             Reader fromJasonReader = Files.newBufferedReader(path);
             listFromJson = initializeGson().fromJson(fromJasonReader, type.getType());
             fromJasonReader.close();

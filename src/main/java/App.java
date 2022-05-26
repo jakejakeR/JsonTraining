@@ -1,3 +1,4 @@
+import com.google.gson.reflect.TypeToken;
 import model.Car;
 import model.Color;
 import services.JsonHandler;
@@ -30,7 +31,9 @@ public class App {
         JsonHandler.saveToJson(cars, jsonPath);
 
         // How to parametrize readFromJson with type?
-        List<Car> carsFromJson = JsonHandler.readFromJson(jsonPath);
+        TypeToken<List<Car>> carListToken = new TypeToken<>() {};
+
+        List<?> carsFromJson = JsonHandler.readFromJson(jsonPath, carListToken);
         System.out.println(cars.equals(carsFromJson));
 
     }
